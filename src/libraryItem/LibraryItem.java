@@ -5,17 +5,33 @@ public class LibraryItem {
     protected String title ;
     protected boolean isAvailable;
 
-    public boolean checkAvailability(){
-        return false;
+
+    private boolean checkAvailability(){
+        return isAvailable;
     }
-    public void borrowItem (){
+    private void printMsg (String msg){
+        System.out.println(msg);
+    }
+    public void borrowItem () {
+        if (checkAvailability()) {
+            this.isAvailable = false;
+            printMsg("book " + this.title + " borrow");
+        }
+        else
+            printMsg("book has been borrowed");
 
     }
     public void returnItem (){
+        if (checkAvailability()){
+            printMsg("book "+this.title+" returned");
+        }
+        else
+            printMsg("book has been returned");
 
     }
     public void displayDetails(){
-
+        System.out.println("title is "+title);
+        System.out.println("availability : "+isAvailable);
     }
 
     public String getTitle() {

@@ -1,26 +1,32 @@
 package libraryItem;
 
-import java.util.Date;
+import Util.Printer;
+
 
 public class Magazine extends LibraryItem {
     private String publisher;
-    private int issueNumber ;
-    private Date publcationDate;
-@Override
+
+
+
+    @Override
     public void displayDetails(){
-        System.out.println("title is "+title);
-        System.out.println("availability : "+isAvailable);
-        System.out.println("publisher : "+publisher);
-        System.out.println("issueNumber : "+issueNumber);
+        Printer.printMsg("title is "+title);
+        Printer.printMsg("availability : "+isAvailable);
+        Printer.printMsg("publisher : "+publisher);
+        Printer.printMsg("item count "+itemCount);
+        System.out.println("--------------");
     }
 
-   public Magazine (String publisher , int issueNumber , String title , boolean isAvailable ){
-       this.title=title;
-       this.isAvailable=isAvailable;
+   public Magazine (String publisher ,  String title , boolean isAvailable , int itemCount ){
+       super(title,itemCount);
        this.publisher =publisher;
-       this.issueNumber=issueNumber;
-
-
-
    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 }

@@ -1,48 +1,50 @@
 package libraryItem;
 
-public class LibraryItem {
+import Util.Printer;
+
+public abstract class LibraryItem {
 
     protected String title ;
     protected boolean isAvailable;
+    protected int itemCount;
 
+    public LibraryItem(String title , int itemCount) {
+        this.title = title;
+        this.isAvailable = itemCount > 0;
+        this.itemCount = itemCount;
+    }
 
     private boolean checkAvailability(){
         return isAvailable;
     }
-    private void printMsg (String msg){
-        System.out.println(msg);
-    }
+    
     public void borrowItem () {
-        if (checkAvailability()) {
-            this.isAvailable = false;
-            printMsg("book " + this.title + " borrow");
+        if (!isAvailable) {
+            Printer.printMsg("this item not available");
         }
         else
-            printMsg("book has been borrowed");
-
+            itemCount-- ;
+        Printer.printMsg("the item "+this.title +" :  borrowed and we have "+ this.itemCount );
     }
+
     public void returnItem (){
-        if (checkAvailability()){
-            printMsg("book "+this.title+" returned");
+            itemCount++ ;
+            Printer.printMsg("the item "+this.title+" returned and we have "+ this.itemCount );
         }
-        else
-            printMsg("book has been returned");
 
-    }
-    public void displayDetails(){
-        System.out.println("title is "+title);
-        System.out.println("availability : "+isAvailable);
-    }
+    public abstract void displayDetails();
 
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
+
         this.title = title;
     }
 
     public boolean isAvailable() {
+        isAvailable = itemCount >0 ;
         return isAvailable;
     }
 

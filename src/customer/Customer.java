@@ -1,5 +1,6 @@
 package customer;
 
+import Util.Printer;
 import libraryItem.LibraryItem;
 
 import java.util.ArrayList;
@@ -12,6 +13,17 @@ public class Customer {
     protected ArrayList<LibraryItem> borrowItem ;
     protected ArrayList<LibraryItem> BuyItem ;
 
+    public void displayDetails(){
+            Printer.printMsg("First name : " + firstName);
+            Printer.printMsg("Last name : " + lastName);
+            Printer.printMsg("Phone Number : " + phoneNumber);
+    }
+
+    public Customer(String firstName, String lastName, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getFirstName() {
         return firstName;

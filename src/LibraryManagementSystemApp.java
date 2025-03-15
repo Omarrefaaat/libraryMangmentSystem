@@ -1,22 +1,27 @@
+import Util.Printer;
+import admin.Admin;
 import customer.BuyPrivilege;
+import customer.Customer;
+import customer.GuestCustomer;
 import customer.PremiumCustomer;
-import dataBase.LibraryItemDataStorage;
 
 import java.util.ArrayList;
 
 public class LibraryManagementSystemApp {
 
-    LibraryItemDataStorage dataBase ;
+    Admin admin = new Admin();
 
-    LibraryManagementSystemApp(){
-        dataBase =new LibraryItemDataStorage();
+
+    public void run() {
+
+        GuestCustomer customer1 = new GuestCustomer("Ahmed", "Mohamed", "011");
+        GuestCustomer customer2 = new GuestCustomer("Nael", "Mohamed", "010");
+        admin.addCustomer(customer1);
+        admin.addCustomer(customer2);
+        Printer.printCustomerList(admin.getCustomers());
+        admin.deleteCustomer(customer2);
+        Printer.printCustomerList(admin.getCustomers());
+
     }
-
-    public void run (){
-
-        ArrayList<BuyPrivilege> list = new ArrayList<>();
-        PremiumCustomer g1 = new PremiumCustomer();
-        list.add(g1);
-    }
-
 }
+

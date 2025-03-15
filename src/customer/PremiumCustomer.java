@@ -4,6 +4,10 @@ import libraryItem.LibraryItem;
 
 public class PremiumCustomer extends Customer implements BuyPrivilege,BorrowingPrivilege,BrowsePrivilege {
 
+    public PremiumCustomer(String firstName, String lastName, String phoneNumber) {
+        super(firstName, lastName, phoneNumber);
+    }
+
     @Override
     public String borrowItem(LibraryItem item) {
         return "";

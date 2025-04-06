@@ -3,17 +3,23 @@ package admin;
 import customer.BorrowingPrivilege;
 import customer.BuyPrivilege;
 import customer.Customer;
+import dataBase.CustomerDataStorage;
 
 import java.util.ArrayList;
 
 public class Admin {
 
     public ArrayList<Customer> customers = new ArrayList<>();
+    CustomerDataStorage customerDataStorage = new CustomerDataStorage();
+
+    public void addCustomer(Customer... customer ) {
 
 
-    public void addCustomer(Customer customer) {
-        customers.add(customer);
-        System.out.println("Customer  "  + customer.getFirstName() + " added  Successfully");
+        for (Customer item: customer) {
+            customers.add(item);
+            System.out.println("Customer  "  + item.getFirstName() + " added  Successfully");
+        }
+
     }
 
     public void deleteCustomer(Customer customer) {

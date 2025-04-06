@@ -16,8 +16,8 @@ public class LibraryManagementSystemApp {
 
         GuestCustomer customer1 = new GuestCustomer("Ahmed", "Mohamed", "011");
         GuestCustomer customer2 = new GuestCustomer("Nael", "Mohamed", "010");
-        admin.addCustomer(customer1);
-        admin.addCustomer(customer2);
+        admin.addCustomer(customer1 , customer2 , customer1 , customer2);
+
         Printer.printCustomerList(admin.getCustomers());
         admin.deleteCustomer(customer2);
         Printer.printCustomerList(admin.getCustomers());
